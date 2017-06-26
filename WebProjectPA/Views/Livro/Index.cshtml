@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Livro";
+}
+
+<div class="content">
+    <div class="main-header">
+        <h2>Cadastro de Livro</h2>
+    </div>
+    <div class="main-content">
+        <div class="widget">
+            <div class="widget-header">
+                <h3><i class="fa fa-edit"></i>Cadastro de Livro</h3>
+            </div>
+            <div class="widget-content">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <input type="text" id="text-titulo" class="form-control" placeholder="Titulo">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="text-area" class="form-control" placeholder="Area">
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="sel-autor" class="form-control" placeholder="Autor"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="sel-editora" class="form-control" placeholder="Editora"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button id="btn-inserir" class="btn btn-block">Inserir</button>
+                    </div>
+                </div>
+                <hr class="inner-separator">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tbl-livro" class="table table-sorting table-hover table-bordered datatable" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-header">
+                <h3><i class="fa fa-edit"></i>Dados de Emprestimo</h3>
+            </div>
+            <div class="widget-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tbl-emprestimo" class="table table-sorting table-hover table-bordered datatable" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /main-content -->
+</div>

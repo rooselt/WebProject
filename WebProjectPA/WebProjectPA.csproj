@@ -44,6 +44,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -133,73 +161,209 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\my-custom-styles.css" />
+    <Content Include="assets\css\select2-spinner.html" />
+    <Content Include="assets\css\select2.html" />
+    <Content Include="assets\css\select2x2.html" />
+    <Content Include="assets\css\skins\darkblue.css" />
+    <Content Include="assets\css\skins\darkbrown.css" />
+    <Content Include="assets\css\skins\fullbright.css" />
+    <Content Include="assets\css\skins\fulldark.css" />
+    <Content Include="assets\css\skins\lightgreen.css" />
+    <Content Include="assets\css\skins\orange.css" />
+    <Content Include="assets\css\skins\red.css" />
+    <Content Include="assets\css\skins\slategray.css" />
+    <Content Include="assets\css\skins\teal.css" />
+    <Content Include="assets\css\skins\yellow.css" />
+    <Content Include="assets\fonts\fontawesome-webfonte0a5.html" />
+    <Content Include="assets\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\lato-bol-webfontaeee.svg" />
+    <Content Include="assets\fonts\lato-lig-webfontce7c.svg" />
+    <Content Include="assets\fonts\lato-reg-webfontd7cf.svg" />
+    <Content Include="assets\ico\favicon.png" />
+    <Content Include="assets\ico\kingadmin-favicon114x114.png" />
+    <Content Include="assets\ico\kingadmin-favicon144x144.png" />
+    <Content Include="assets\ico\kingadmin-favicon57x57.png" />
+    <Content Include="assets\ico\kingadmin-favicon72x72.png" />
+    <Content Include="assets\images\background.html" />
+    <Content Include="assets\images\collection.html" />
+    <Content Include="assets\images\collection_hover.html" />
+    <Content Include="assets\images\gritter-light.html" />
+    <Content Include="assets\images\gritter.html" />
+    <Content Include="assets\images\ie-spacer.html" />
+    <Content Include="assets\images\sort_asc.html" />
+    <Content Include="assets\images\sort_asc_disabled.html" />
+    <Content Include="assets\images\sort_both.html" />
+    <Content Include="assets\images\sort_desc.html" />
+    <Content Include="assets\images\sort_desc_disabled.html" />
+    <Content Include="assets\images\spritemap%402x.html" />
+    <Content Include="assets\images\spritemap.html" />
+    <Content Include="assets\img\bootstrap-colorpicker\alpha-horizontal1615.png" />
+    <Content Include="assets\img\bootstrap-colorpicker\alpha1615.png" />
+    <Content Include="assets\img\bootstrap-colorpicker\hue-horizontal1615.png" />
+    <Content Include="assets\img\bootstrap-colorpicker\hue1615.png" />
+    <Content Include="assets\img\bootstrap-colorpicker\saturation1615.png" />
+    <Content Include="assets\img\clear.png" />
+    <Content Include="assets\img\diagonal-stripe1997.png" />
+    <Content Include="assets\img\gallery\bird.html" />
+    <Content Include="assets\img\gallery\cafe.html" />
+    <Content Include="assets\img\gallery\chair.html" />
+    <Content Include="assets\img\gallery\cuba-cup.html" />
+    <Content Include="assets\img\gallery\desk.html" />
+    <Content Include="assets\img\gallery\desk2.html" />
+    <Content Include="assets\img\gallery\fence.html" />
+    <Content Include="assets\img\gallery\hand.html" />
+    <Content Include="assets\img\gallery\jet-sky.html" />
+    <Content Include="assets\img\gallery\kitsune.html" />
+    <Content Include="assets\img\gallery\lighthouse.html" />
+    <Content Include="assets\img\gallery\mac.html" />
+    <Content Include="assets\img\gritter7288.png" />
+    <Content Include="assets\img\ie-spacer7288.gif" />
+    <Content Include="assets\img\kingadmin-logo-white.png" />
+    <Content Include="assets\img\kingadmin-logo.png" />
+    <Content Include="assets\img\loading.gif" />
+    <Content Include="assets\img\profile-avatar.png" />
+    <Content Include="assets\img\search-result-img.png" />
+    <Content Include="assets\img\select2-spinnera5df.gif" />
+    <Content Include="assets\img\user-avatar.png" />
+    <Content Include="assets\img\user1.png" />
+    <Content Include="assets\img\user2.png" />
+    <Content Include="assets\img\user3.png" />
+    <Content Include="assets\img\user4.png" />
+    <Content Include="assets\img\user5.png" />
+    <Content Include="assets\js\ajax\livro.js" />
+    <Content Include="assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="assets\js\jquery-ui\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="assets\js\jquery\jquery-2.1.0.min.js" />
+    <Content Include="assets\js\king-chart-stat.js" />
+    <Content Include="assets\js\king-common.js" />
+    <Content Include="assets\js\king-components.js" />
+    <Content Include="assets\js\king-elements.js" />
+    <Content Include="assets\js\king-form-layouts.js" />
+    <Content Include="assets\js\king-page.js" />
+    <Content Include="assets\js\king-table.js" />
+    <Content Include="assets\js\plugins\bootstrap-colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-contextmenu\bootstrap-contextmenu.js" />
+    <Content Include="assets\js\plugins\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-editable\address.custom.js" />
+    <Content Include="assets\js\plugins\bootstrap-editable\bootstrap-editable.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-editable\demo-mock.js" />
+    <Content Include="assets\js\plugins\bootstrap-editable\jquery.mockjax.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-multiselect\bootstrap-multiselect.js" />
+    <Content Include="assets\js\plugins\bootstrap-progressbar\bootstrap-progressbar.js" />
+    <Content Include="assets\js\plugins\bootstrap-progressbar\bootstrap-progressbar.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-slider\bootstrap-slider.js" />
+    <Content Include="assets\js\plugins\bootstrap-switch\bootstrap-switch.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-touchspin\jquery.bootstrap-touchspin.js" />
+    <Content Include="assets\js\plugins\bootstrap-tour\bootstrap-tour.custom.js" />
+    <Content Include="assets\js\plugins\datatable\dataTables.bootstrap.js" />
+    <Content Include="assets\js\plugins\datatable\exts\dataTables.colReorder.min.html" />
+    <Content Include="assets\js\plugins\datatable\exts\dataTables.colVis.bootstrap.html" />
+    <Content Include="assets\js\plugins\datatable\exts\dataTables.tableTools.min.js" />
+    <Content Include="assets\js\plugins\datatable\jquery.dataTables.min.js" />
+    <Content Include="assets\js\plugins\datatable\plugins\sorting\date-uk.js" />
+    <Content Include="assets\js\plugins\datatable\plugins\sorting\file-size.js" />
+    <Content Include="assets\js\plugins\datatable\plugins\type-detection\date-uk.js" />
+    <Content Include="assets\js\plugins\datatable\plugins\type-detection\file-size.js" />
+    <Content Include="assets\js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="assets\js\plugins\dropzone\dropzone.min.js" />
+    <Content Include="assets\js\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="assets\js\plugins\fullcalendar\fullcalendar.min.html" />
+    <Content Include="assets\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="assets\js\plugins\fullcalendar\lang-all.js" />
+    <Content Include="assets\js\plugins\google-map\google-map.html" />
+    <Content Include="assets\js\plugins\jqallrangesliders\jQAllRangeSliders-min.js" />
+    <Content Include="assets\js\plugins\jqgrid\i18n\grid.locale-en.html" />
+    <Content Include="assets\js\plugins\jqgrid\jquery.jqGrid.fluid.html" />
+    <Content Include="assets\js\plugins\jqgrid\jquery.jqGrid.min.html" />
+    <Content Include="assets\js\plugins\jquery-gritter\jquery.gritter.min.html" />
+    <Content Include="assets\js\plugins\jquery-mapael\jquery.mapael.js" />
+    <Content Include="assets\js\plugins\jquery-maskedinput\jquery.masked-input.min.js" />
+    <Content Include="assets\js\plugins\jquery-mousewheel\jquery.mousewheel.html" />
+    <Content Include="assets\js\plugins\jquery-simplecolorpicker\jquery.simplecolorpicker.js" />
+    <Content Include="assets\js\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="assets\js\plugins\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="assets\js\plugins\markdown\bootstrap-markdown.js" />
+    <Content Include="assets\js\plugins\markdown\markdown.js" />
+    <Content Include="assets\js\plugins\markdown\to-markdown.js" />
+    <Content Include="assets\js\plugins\modernizr\modernizr.js" />
+    <Content Include="assets\js\plugins\moment\moment.min.js" />
+    <Content Include="assets\js\plugins\parsley-validation\parsley.min.js" />
+    <Content Include="assets\js\plugins\raphael\maps\france_departments.html" />
+    <Content Include="assets\js\plugins\raphael\maps\usa_states.js" />
+    <Content Include="assets\js\plugins\raphael\maps\world_countries.html" />
+    <Content Include="assets\js\plugins\raphael\raphael-2.1.0.min.js" />
+    <Content Include="assets\js\plugins\raphael\raphael-min.html" />
+    <Content Include="assets\js\plugins\select2\select2.min.css" />
+    <Content Include="assets\js\plugins\select2\select2.min.js" />
+    <Content Include="assets\js\plugins\stat\colorbrewer.js" />
+    <Content Include="assets\js\plugins\stat\d3.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.orderBars.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.pie.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.resize.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.selection.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.time.min.js" />
+    <Content Include="assets\js\plugins\stat\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="assets\js\plugins\stat\jquery.easypiechart.min.js" />
+    <Content Include="assets\js\plugins\summernote\summernote.min.js" />
+    <Content Include="assets\js\plugins\tree\jstree.js" />
+    <Content Include="assets\js\plugins\tree\themes\default\32px.png" />
+    <Content Include="assets\js\plugins\tree\themes\default\40px.png" />
+    <Content Include="assets\js\plugins\tree\themes\default\throbber.gif" />
+    <Content Include="assets\js\plugins\typeahead\typeahead.js" />
+    <Content Include="assets\js\plugins\typeahead\typeaheadjs.1.5.1.js" />
+    <Content Include="assets\js\plugins\wizard\wizard.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="demo-style-switcher\assets\css\style-switcher.css" />
+    <Content Include="demo-style-switcher\assets\img\cog.png" />
+    <Content Include="demo-style-switcher\assets\js\deliswitch.js" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="assets\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="assets\fonts\lato-bol-webfont6db9.eot" />
+    <Content Include="assets\fonts\lato-bol-webfontaeee.eot" />
+    <Content Include="assets\fonts\lato-bol-webfontaeee.ttf" />
+    <Content Include="assets\fonts\lato-bol-webfontaeee.woff" />
+    <Content Include="assets\fonts\lato-lig-webfont205d.eot" />
+    <Content Include="assets\fonts\lato-lig-webfontce7c.eot" />
+    <Content Include="assets\fonts\lato-lig-webfontce7c.ttf" />
+    <Content Include="assets\fonts\lato-lig-webfontce7c.woff" />
+    <Content Include="assets\fonts\lato-reg-webfont56bb.eot" />
+    <Content Include="assets\fonts\lato-reg-webfontd7cf.eot" />
+    <Content Include="assets\fonts\lato-reg-webfontd7cf.ttf" />
+    <Content Include="assets\fonts\lato-reg-webfontd7cf.woff" />
+    <Content Include="Diagram_WebBiblioteca.cd" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -211,40 +375,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Livro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProjetoPA\EF6\EF6.csproj">
+      <Project>{A17EC30A-65CE-4876-AE8F-A5067E6AD221}</Project>
+      <Name>EF6</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
