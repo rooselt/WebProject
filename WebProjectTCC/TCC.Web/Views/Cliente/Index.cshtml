@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Cliente";
+}
+
+<div class="content">
+    <div class="main-header">
+        <h2>Cadastro de Cliente</h2>
+    </div>
+    <div class="main-content">
+        <div class="widget">
+            <div class="widget-header">
+                <h3><i class="fa fa-edit"></i>Cadastro de Cliente</h3>
+            </div>
+            <div class="widget-content">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select id="idEmpresa" name="idEmpresa" class="form-control" placeholder="Empresa" readonly="readonly"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Endereço">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">                    
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="numero" name="numero" class="form-control" placeholder="Numero">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Complemento">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="cep" name="cep" class="form-control cep" placeholder="Cep">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select class="form-control" id="idCidade" name="idCidade">
+                                <option>Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="pais" name="pais" class="form-control" readonly="readonly" placeholder="País">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="estado" name="estado" class="form-control" readonly="readonly" placeholder="Estado">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="telefoneContato" name="telefoneContato phone-fixo" class="form-control" placeholder="Telefone Contato">
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="text" id="ramal" name="ramal" class="form-control" placeholder="Ramal">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="telefoneCelular" name="telefoneCelular phone" class="form-control" placeholder="Telefone Celular">
+                    </div>
+                </div>
+                <hr class="inner-separator">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tbl-cliente" class="table table-sorting table-hover table-bordered datatable" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /main-content -->
+</div>
+
+
+<script src="~/Scripts/util/address.js"></script>
+<script>
+    $("#idCidade").change(function () {
+        fillAddress(this.value);
+    });
+</script>

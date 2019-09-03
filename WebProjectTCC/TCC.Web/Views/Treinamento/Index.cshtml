@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Cliente";
+}
+
+<div class="content">
+    <div class="main-header">
+        <h2>Cadastro de Cliente</h2>
+    </div>
+    <div class="main-content">
+        <div class="widget">
+            <div class="widget-header">
+                <h3><i class="fa fa-edit"></i>Cadastro de Cliente</h3>
+            </div>
+            <div class="widget-content">
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select id="idEmpresa" name="idEmpresa" class="form-control" placeholder="Empresa" readonly="readonly"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select id="idColaborador" name="idColaborador" class="form-control" placeholder="Instrutor"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" id="descricao" name="descricao" class="form-control" placeholder="Nome da Aula">
+                        </div>
+                    </div>                   
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input type="text" id="local" name="local" class="form-control" placeholder="Sala da Aula">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="dataInicial" name="dataInicial" class="form-control" placeholder="Data Inicial">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="dataFinal" name="dataFinal" class="form-control" placeholder="Data Final">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="periodoInicial" name="periodoInicial" class="form-control" placeholder="Horário Inicial">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" id="periodoFinal" name="periodoFinal" class="form-control" placeholder="Horário Final">
+                        </div>
+                    </div>
+                </div>
+                <hr class="inner-separator">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tbl-cliente" class="table table-sorting table-hover table-bordered datatable" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /main-content -->
+</div>
+
+
+<script src="~/Scripts/util/address.js"></script>
+<script>
+    $("#idCidade").change(function () {
+        fillAddress(this.value);
+    });
+</script>
