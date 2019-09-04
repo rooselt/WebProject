@@ -14,7 +14,7 @@ namespace TCC.Web.Controllers
     public class EmpresaController : BaseController
     {
         public readonly EmpresaObject _empresaObject = new EmpresaObject();
-        public readonly CidadeObject _cidadeObject = new CidadeObject();
+
 
         public ActionResult Index()
         {
@@ -53,10 +53,12 @@ namespace TCC.Web.Controllers
                 response.statusCode = HttpStatusCode.OK;
                 response.mensagem = CrudMsgFormater.CreateSuccesCrudMessage();
             }
-            catch
+            catch (Exception e)
             {
                 response.statusCode = HttpStatusCode.BadRequest;
                 response.mensagem = CrudMsgFormater.CreateErrorCrudMessage();
+
+                LogErro(e, eErrorGravity.Media);
             }
 
             return Json(response, JsonRequestBehavior.AllowGet);
@@ -74,17 +76,6 @@ namespace TCC.Web.Controllers
             var empresa = _empresaObject.GetById(Id);
             return Json(empresa, JsonRequestBehavior.AllowGet);
         }
-
-      
-
-        [HttpGet]
-        public JsonResult GetComboCidade()
-        {
-            var cidade = _cidadeObject.GetCombo();            
-            return Json(cidade, JsonRequestBehavior.AllowGet); ;
-        }
-
-      
 
         private void InsertEmpresa(Empresa empresa)
         {

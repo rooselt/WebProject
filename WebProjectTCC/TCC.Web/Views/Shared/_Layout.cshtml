@@ -14,6 +14,7 @@
     <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="~/assets/js/plugins/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/assets/js/plugins/jquery-gritter/css/jquery.gritter.css" rel="stylesheet" />
     <link href="~/assets/css/main.css" rel="stylesheet" type="text/css">
     <link href="~/assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
     <!--[if lte IE 9]>
@@ -39,7 +40,9 @@
                 <div class="row">
                     <!-- logo -->
                     <div class="col-md-2 logo">
-                        <a href="index-2.html"><img src="~/assets/img/kingadmin-logo-white.png" alt="KingAdmin - Admin Dashboard" /></a>
+                        <a href="@Url.Content("~/Home")">
+                            <span class="text-logo">Academy System</span>
+                        </a>
                         <h1 class="sr-only">KingAdmin Admin Dashboard</h1>
                     </div>
                     <!-- end logo -->
@@ -48,10 +51,10 @@
                             <div class="col-md-3">
                                 <!-- search box -->
                                 <div id="tour-searchbox" class="input-group searchbox">
-                                    <input type="search" class="form-control" placeholder="enter keyword here...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                                    </span>
+                                    @* <input type="search" class="form-control" placeholder="enter keyword here...">*@
+                                    @*<span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                        </span>*@
                                 </div>
                                 <!-- end search box -->
                             </div>
@@ -61,7 +64,7 @@
                                     <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
                                     <!-- end responsive menu bar icon -->
                                     <button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Iniciar Tour</button>
-                                    
+
                                     <div class="notifications">
                                         <ul>
                                             <!-- notification: inbox -->
@@ -110,7 +113,7 @@
                                                 </div>
                                             </li>
                                             <!-- end notification: inbox -->
-                                          
+
                                         </ul>
                                     </div>
                                     <!-- logged user and the menu -->
@@ -166,11 +169,13 @@
                             <ul class="main-menu">
                                 <li>
                                     <a href="#" class="js-sub-menu-toggle">
-                                        <i class="fa fa-edit fw"></i><span class="text">Forms</span>
+                                        <i class="fa fa-edit fw"></i><span class="text">Cadastros</span>
                                         <i class="toggle-icon fa fa-angle-left"></i>
                                     </a>
                                     <ul class="sub-menu ">
-                                        <li><a href="form-inplace-editing.html"><span class="text">In-place Editing</span></a></li>
+                                        <li><a href="@Url.Content("~/Empresa")"><span class="text">Empresa</span></a></li>
+                                        <li><a href="@Url.Content("~/Cliente")"><span class="text">Cliente</span></a></li>
+                                        <li><a href="@Url.Content("~/Treinamento")"><span class="text">Treinamento</span></a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -189,7 +194,7 @@
                                     <p>You can do live search to the widget at search box located at top bar. It's very useful if your dashboard is full of widget.</p>
                                 </div>
                             </div>
-                            <h5 class="label label-default"><i class="fa fa-info-circle"></i> Server Info</h5>
+                            <h5 class="label label-default"><i class="fa fa-info-circle"></i> Informações do Servidor</h5>
                             <ul class="list-unstyled list-info-sidebar bottom-30px">
                                 <li class="data-row">
                                     <div class="data-name">Disk Space Usage</div>
@@ -250,20 +255,18 @@
                     <!-- end top general alert -->
                     <!-- content-wrapper -->
                     <div class="col-md-10 content-wrapper">
-                        <div class="row">
-                            <div class="col-lg-4 ">
-                                <ul class="breadcrumb">
-                                    <li><i class="fa fa-home"></i><a href="#">Home</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li class="active">Blank Page</li>
-                                </ul>
-                            </div>
 
-                        </div>
                         <!-- main -->
-                        <div class="content">
-                            @RenderBody();
-                        </div>
+
+                        @Scripts.Render("~/bundles/jquery")
+                        @Scripts.Render("~/bundles/modernizr")
+                        @Scripts.Render("~/bundles/bootstrap")
+                        @Scripts.Render("~/bundles/jqueryval")
+                        @Scripts.Render("~/bundles/plugin")
+                        @Scripts.Render("~/bundles/datatable")
+
+                        @RenderBody()
+
                         <!-- /main -->
                     </div>
                     <!-- /content-wrapper -->
@@ -276,9 +279,7 @@
     </div>
     <!-- /wrapper -->
     <!-- FOOTER -->
-    <footer class="footer">
-        &copy; 2014-2015 The Develovers
-    </footer>
+    <footer class="footer"></footer>
     <!-- END FOOTER -->
     <!-- STYLE SWITCHER -->
     <div class="del-style-switcher">
@@ -304,19 +305,21 @@
         </form>
     </div>
     <!-- END STYLE SWITCHER -->
-    <!-- Javascript -->
-    <script src="~/assets/js/jquery/jquery-2.1.0.min.js"></script>
-    <script src="~/assets/js/bootstrap/bootstrap.min.js"></script>
-    <script src="~/assets/js/plugins/modernizr/modernizr.js"></script>
-    <script src="~/assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
-    <script src="~/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
-    <script src="~/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
-    <script src="~/assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
-    <script src="~/assets/js/plugins/select2/select2.min.js"></script>
-    <script src="~/assets/js/king-common.js"></script>
-    <script src="~/demo-style-switcher/assets/js/deliswitch.js"></script>
 
-    <script src="~/assets/js/ajax/livro.js"></script>
+    @RenderSection("scripts", false)
+    <script src="~/Scripts/Util/message.js"></script>
+    <script src="~/Scripts/Util/url.js"></script>
+    <!-- Javascript -->
+    @*<script src="~/assets/js/jquery/jquery-2.1.0.min.js"></script>
+        <script src="~/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="~/assets/js/plugins/modernizr/modernizr.js"></script>*@
+    @*<script src="~/assets/js/plugins/datatable/jquery.dataTables.min.js"></script>*@
+
+    @*<script src="~/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+        <script src="~/assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+        <script src="~/assets/js/plugins/select2/select2.min.js"></script>
+        <script src="~/assets/js/king-common.js"></script>
+        <script src="~/demo-style-switcher/assets/js/deliswitch.js"></script>*@
 </body>
 
 <!-- Mirrored from demo.thedevelovers.com/dashboard/kingadmin-v1.4/page-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 May 2015 15:58:12 GMT -->

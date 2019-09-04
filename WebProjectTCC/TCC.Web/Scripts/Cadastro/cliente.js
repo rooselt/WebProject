@@ -1,14 +1,15 @@
 ﻿
 $(function () {
-    getCombos();
+    getComboEmpresa();
+    getComboCidade();
 });
 
 $(document).on("click", "#btnSalvar", function () {
-    var empresaForm = $(document).find('#empresaForm');
+    var clienteForm = $(document).find('#clienteForm');
 
-    if (empresaForm.valid() && validInputsTabs()) {
-        salvar(empresaForm, urlCreateEmpresa).complete(function () {
-            list(urlTableEmpresa);
+    if (clienteForm.valid() && validInputsTabs()) {
+        salvar(clienteForm, urlCreateCliente).complete(function () {
+            list(urlTableCliente);
         });
     } else {
         messageAlert(validation, error);
@@ -20,8 +21,8 @@ $(document).on("blur", "#cnpj", function () {
 });
 
 $(document).on("click", "#confirma", function () {
-    deletar(urlDeleteEmpresa).complete(function () {
-        list(urlTableEmpresa);
+    deletar(urlDeletecliente).complete(function () {
+        list(urlTableCliente);
     });
 });
 
@@ -48,14 +49,12 @@ function validateCnpj() {
 }
 
 function editar(id, urlGet) {
-    var idEmpresa = $(document).find("#Id");
-    var razaoSocial = $(document).find("#razaoSocial");
-    var cnpj = $(document).find("#cnpj");
-    var inscricaoEstadual = $(document).find("#inscricaoEstadual");
-    var nomeFantasia = $(document).find("#nomeFantasia");
-    var responsavel = $(document).find("#responsavel");
+    var idCliente = $(document).find("#Id");
+    var idEmpresa = $(document).find("#idEmpresa");
+    var nome = $(document).find("#nome");
+    var cpf = $(document).find("#cpf");
+    var identidade = $(document).find("#identidade");
     var email = $(document).find("#email");
-    var paginaWeb = $(document).find("#paginaWeb");
     var telefoneContato = $(document).find("#telefoneContato");
     var ramal = $(document).find("#ramal");
     var telefoneCelular = $(document).find("#telefoneCelular");
@@ -68,22 +67,19 @@ function editar(id, urlGet) {
     var pais = $(document).find("#pais");
     var estado = $(document).find("#estado");
 
-    $("#Id").val(id);
-
     desbloqFields();
 
     return $.get(urlGet, { id: id }, function (data) {
-        idEmpresa.val(data.Id);
-        razaoSocial.val(data.RazaoSocial);
-        cnpj.val(data.CNPJ);
-        cnpj.attr('readonly', true);
+        idCliente.val(data.Id);
+        idEmpresa.val(data.IdEmpresa).trigger("change");
 
-        inscricaoEstadual.val(data.InscricaoEstadual);
-        nomeFantasia.val(data.NomeFantasia);
-        responsavel.val(data.Responsavel);
+        cpf.val(data.Cpf);
+        cpf.attr('readonly', true);
+
+        nome.val(data.Nome);
+        identidade.val(data.Identidade);
 
         email.val(data.Email);
-        paginaWeb.val(data.PaginaWEB);
         telefoneContato.val(data.TelefoneContato).trigger("blur");
         ramal.val(data.Ramal);
 
@@ -105,7 +101,17 @@ function editar(id, urlGet) {
 
 }
 
-function getCombos() {
+function getComboEmpresa() {
+    var idEmpresa = $("#idEmpresa");
+
+    return $.get(urlGetComboEmpresa, function (data) {
+        preencheCombo(data, idEmpresa);
+    }).fail(function (e) {
+        messageAlert(e.Mensagem, error);
+    });
+}
+
+function getComboCidade() {
     var idCidade = $("#idCidade");
 
     return $.get(urlGetComboCidade, function (data) {
@@ -118,6 +124,7 @@ function getCombos() {
 function visualiza(id, urlGet) {
     editar(id, urlGet).complete(function () {
         $("#idCidade").select2({ disabled: true });
+        $("#idEmpresa").select2({ disabled: true });
 
         $(".widget-content input:not(#search-table)").attr("disabled", "disabled");
 
@@ -129,14 +136,15 @@ function visualiza(id, urlGet) {
 function desbloqFields() {
     $(".widget-content input").removeAttr("disabled");
     $("#idCidade").select2({ disabled: false });
+    $("#idEmpresa").select2({ disabled: false });
 
     $("#btnNovo").show();
     $("#btnSalvar").show();
 }
 
 function clearFields() {
-    var inputs = $("#empresaForm").find("input");
-    var select = $("#empresaForm").find("select");
+    var inputs = $("#clienteForm").find("input");
+    var select = $("#clienteForm").find("select");
 
     $.each(inputs, function (i, item) {
         $(item).val("").trigger("blur");

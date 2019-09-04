@@ -23,8 +23,8 @@ function fillAddress(id) {
 
     $.get(urlGetPaisEstado, { idCidade: id },
         function (data) {
-            pais.val(data.cidade.Estado.Pais.Descricao);
-            estado.val(data.cidade.Estado.Descricao);
+            pais.val(data.Estado.Pais.Descricao);
+            estado.val(data.Estado.Descricao);
         });
 
 }

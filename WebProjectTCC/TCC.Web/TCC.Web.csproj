@@ -169,6 +169,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SessionConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
@@ -240,8 +241,10 @@
     <Content Include="assets\img\bootstrap-colorpicker\hue-horizontal1615.png" />
     <Content Include="assets\img\bootstrap-colorpicker\hue1615.png" />
     <Content Include="assets\img\bootstrap-colorpicker\saturation1615.png" />
+    <Content Include="assets\img\check.png" />
     <Content Include="assets\img\clear.png" />
     <Content Include="assets\img\diagonal-stripe1997.png" />
+    <Content Include="assets\img\error.png" />
     <Content Include="assets\img\gallery\bird.html" />
     <Content Include="assets\img\gallery\cafe.html" />
     <Content Include="assets\img\gallery\chair.html" />
@@ -314,13 +317,30 @@
     <Content Include="assets\js\plugins\jqgrid\i18n\grid.locale-en.html" />
     <Content Include="assets\js\plugins\jqgrid\jquery.jqGrid.fluid.html" />
     <Content Include="assets\js\plugins\jqgrid\jquery.jqGrid.min.html" />
-    <Content Include="assets\js\plugins\jquery-gritter\jquery.gritter.min.html" />
+    <Content Include="assets\js\plugins\jquery-gritter\css\jquery.gritter.css" />
+    <Content Include="assets\js\plugins\jquery-gritter\images\gritter-light.png" />
+    <Content Include="assets\js\plugins\jquery-gritter\images\gritter-long.png" />
+    <Content Include="assets\js\plugins\jquery-gritter\images\gritter.png" />
+    <Content Include="assets\js\plugins\jquery-gritter\images\ie-spacer.gif" />
+    <Content Include="assets\js\plugins\jquery-gritter\images\trees.jpg" />
+    <Content Include="assets\js\plugins\jquery-gritter\js\jquery.gritter.js" />
+    <Content Include="assets\js\plugins\jquery-gritter\js\jquery.gritter.min.js" />
     <Content Include="assets\js\plugins\jquery-mapael\jquery.mapael.js" />
     <Content Include="assets\js\plugins\jquery-maskedinput\jquery.masked-input.min.js" />
     <Content Include="assets\js\plugins\jquery-mousewheel\jquery.mousewheel.html" />
     <Content Include="assets\js\plugins\jquery-simplecolorpicker\jquery.simplecolorpicker.js" />
     <Content Include="assets\js\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
     <Content Include="assets\js\plugins\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\additional-methods.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\additional-methods.min.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\jquery.validate.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\jquery.validate.min.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\messages_pt_BR.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\messages_pt_BR.min.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\messages_pt_PT.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\messages_pt_PT.min.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\methods_pt.js" />
+    <Content Include="assets\js\plugins\jquery-validation\js\localization\methods_pt.min.js" />
     <Content Include="assets\js\plugins\markdown\bootstrap-markdown.js" />
     <Content Include="assets\js\plugins\markdown\markdown.js" />
     <Content Include="assets\js\plugins\markdown\to-markdown.js" />
@@ -383,10 +403,12 @@
     <Content Include="assets\fonts\lato-reg-webfontd7cf.eot" />
     <Content Include="assets\fonts\lato-reg-webfontd7cf.ttf" />
     <Content Include="assets\fonts\lato-reg-webfontd7cf.woff" />
+    <Content Include="Scripts\Cadastro\cliente.js" />
     <Content Include="Scripts\Cadastro\empresa.js" />
     <Content Include="Scripts\Util\address.js" />
     <Content Include="Scripts\Util\baseJs.js" />
     <Content Include="Scripts\Util\crud-base.js" />
+    <Content Include="Scripts\Util\message.js" />
     <Content Include="Scripts\Util\url.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -439,6 +461,9 @@
     <None Include="packages.config" />
     <Content Include="Views\Empresa\Index.cshtml" />
     <Content Include="Views\Treinamento\Index.cshtml" />
+    <Content Include="Views\Empresa\_Table.cshtml" />
+    <Content Include="Views\Shared\_ModalDelete.cshtml" />
+    <Content Include="Views\Cliente\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TCC.Application\TCC.Application.csproj">

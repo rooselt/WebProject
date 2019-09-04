@@ -21,9 +21,9 @@ namespace TCC.Infra.Mapping
 
             this.Property(x => x.Email).HasColumnName("EMAIL").HasMaxLength(255).IsOptional();
             this.Property(x => x.PaginaWEB).HasColumnName("PAGINA_WEB").HasMaxLength(150).IsOptional();
-            this.Property(x => x.TelefoneContato).HasColumnName("TEL_CONTATO").HasMaxLength(15).IsRequired();
+            this.Property(x => x.TelefoneContato).HasColumnName("TEL_CONTATO").HasMaxLength(15).IsOptional();
             this.Property(x => x.Ramal).HasColumnName("RAMAL").HasMaxLength(10).IsOptional();
-            this.Property(x => x.TelefoneCelular).HasColumnName("TEL_CELULAR").HasMaxLength(16).IsRequired();
+            this.Property(x => x.TelefoneCelular).HasColumnName("TEL_CELULAR").HasMaxLength(16).IsOptional();
 
             this.Property(x => x.Logradouro).HasColumnName("LOGRADOURO").HasMaxLength(255).IsRequired();
             this.Property(x => x.Numero).HasColumnName("NUMERO").IsRequired();

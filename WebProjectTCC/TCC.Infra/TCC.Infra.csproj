@@ -101,9 +101,11 @@
     <Compile Include="Migrations\UserSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="ValueObject\ClienteObject.cs" />
     <Compile Include="ValueObject\LogOperacaoObject.cs" />
     <Compile Include="ValueObject\CidadeObject.cs" />
     <Compile Include="ValueObject\EmpresaObject.cs" />
+    <Compile Include="ValueObject\SubMenuObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TCC.Application\TCC.Application.csproj">

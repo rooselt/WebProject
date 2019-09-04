@@ -2,8 +2,9 @@
 namespace HTS.MVC.AutoMapper
 {
     using global::AutoMapper;
-    
+
     using TCC.Domain.Entities;
+    using TCC.Web.Models;
 
     public class ViewModelToDomainMappingProfile : Profile
     {
@@ -11,12 +12,11 @@ namespace HTS.MVC.AutoMapper
 
         public ViewModelToDomainMappingProfile()
         {
-                      
+
             this.CreateMap<Cliente, ClienteViewModel>();
-            
-            this.CreateMap<Colaborador, ColaboradorViewModel>();           
-            this.CreateMap<Cidade, CidadeViewModel>();
-            this.CreateMap<Empresa, EmpresaViewModel>();           
+
+            this.CreateMap<Colaborador, ColaboradorViewModel>();
+            this.CreateMap<Empresa, EmpresaViewModel>();
         }
     }
 }

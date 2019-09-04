@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using HTS.Infra.Visions;
+using Newtonsoft.Json;
 using System;
-using System.Net;
+using System.Data.Entity;
+using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using TCC.Application;
@@ -17,6 +19,8 @@ namespace TCC.Web.Controllers
     {
         public readonly ICrudMsgFormater CrudMsgFormater = new CrudMsgFormater();
         public readonly LogOperacaoObject LogOperacaoObject = new LogOperacaoObject();
+        public readonly SubMenuObject SubMenuObject = new SubMenuObject();
+        public readonly CidadeObject _cidadeObject = new CidadeObject();
 
         [HttpGet]
         public virtual ActionResult GetComboEmpresa()
@@ -26,11 +30,29 @@ namespace TCC.Web.Controllers
             return Json(empresa, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult GetComboCidade()
+        {
+            var cidade = _cidadeObject.GetCombo();
+            return Json(cidade, JsonRequestBehavior.AllowGet); ;
+        }
+
+        [HttpGet]
+        public JsonResult GetPaisEstadoById(int idCidade)
+        {
+            var cidade = _cidadeObject.GetBy(c=> c.Id == idCidade)
+                .Include(c => c.Estado)
+                .Include(c => c.Estado.Pais)
+                .First();
+            
+            return Json(cidade, JsonRequestBehavior.AllowGet);
+        }
+
         public void LogErro(Exception e, eErrorGravity eErrorGravity)
         {
             var action = SessionConfig.SubMenu.Action;
             var controller = SessionConfig.SubMenu.Controller;
-            var subMenu = SubMenuVision.GetSubMenuByRotaId(action, controller);
+            var subMenu = SubMenuObject.GetSubMenuByRotaId(action, controller);
 
             var log = new LogOperacao
             {
@@ -39,7 +61,7 @@ namespace TCC.Web.Controllers
                 InnerException = e.Message,
                 eErrorGravity = eErrorGravity,
                 IdSubMenu = subMenu.Id
-            };           
+            };
 
             LogOperacaoObject.Add(log);
             LogOperacaoObject.Save();
@@ -73,11 +95,6 @@ namespace TCC.Web.Controllers
 
         public override void ExecuteResult(ControllerContext context)
         {
-            //if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet && string.Equals(
-            //        context.HttpContext.Request.HttpMethod,
-            //        "GET",
-            //        StringComparison.OrdinalIgnoreCase)) throw new InvalidOperationException("GET request not allowed");
-
             var response = context.HttpContext.Response;
 
             response.ContentType = !string.IsNullOrEmpty(ContentType) ? ContentType : "application/json";

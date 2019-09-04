@@ -17,6 +17,56 @@
     };
 })(jQuery);
 
+$.urlParam = function (name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results === null) {
+        return null;
+    }
+    else {
+        return decodeURI(results[1]) || 0;
+    }
+};
+
+
+(function ($) {
+
+    'use strict';
+
+    // Initialize datatable with ability to add rows dynamically
+    var initTableWithDynamicRows = function () {
+        var tableCompany = $('#tableCompany');
+
+        var table = tableCompany.DataTable({
+          
+            scrollCollapse: true,
+            responsive: true,
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            },
+            destroy: true,
+            iDisplayLength: 5,
+            autoWidth: true,
+            lengthChange: false
+        });
+
+        // search box for table
+        $('#search-table').keyup(function () {
+            table.search($(this).val()).draw();
+        });
+    };
+
+    initTableWithDynamicRows();
+
+    $('body').tooltip({
+        selector: '[data-toggle="tooltip"], [data-toggle="modal"], [title]:not([data-toggle="popover"])',
+        trigger: 'hover',
+        container: 'body'
+    }).on('click mousedown mouseup', '[data-toggle="tooltip"], [title]:not([data-toggle="popover"])', function () {
+        $('[data-toggle="tooltip"], [title]:not([data-toggle="popover"]').tooltip('hide');
+    });
+
+})(window.jQuery);
+
 function getDatePicker(id) {
     $(id).datepicker({
         autoclose: true,
@@ -37,15 +87,6 @@ function getTimePicker() {
         widget.find('.glyphicon-chevron-down').removeClass().addClass('pg-arrow_minimize');
     });
 }
-
-$(document).on("click", "#termoUso", function () {
-    $('#myModalTermoUso').modal('show');
-});
-
-$(document).on("click", "#btnConflitoMenu", function () {
-    window.location.href = urlIndexConflito + "?registro=null&parameter=avaliacao";
-
-});
 
 function modalDocumento(codigo) {
     if (codigo === true) {
@@ -311,7 +352,6 @@ function validInputsTabs() {
     return isValid;
 }
 
-
 var childTable = function (objHtml, event) {
     var link = $(event),
         icon = link.find('.icon'),
@@ -401,15 +441,6 @@ function childTableAjax(event, jsonKey, url) {
     }
 }
 
-$.urlParam = function (name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results === null) {
-        return null;
-    }
-    else {
-        return decodeURI(results[1]) || 0;
-    }
-};
 
 function jQFormSerializeArrToJson(formSerializeArr) {
     var jsonObj = {};
@@ -420,127 +451,3 @@ function jQFormSerializeArrToJson(formSerializeArr) {
     return jsonObj;
 }
 
-
-//Processo
-function calcularScore(problemaCliente, aumCusto, redIncidente, redimpacto, faturamento, ImpactoIndireto, ImpactoDireto) {
-    problemaCliente = calculoFonteUnn(problemaCliente);
-
-    aumCusto = (aumCusto * 15);
-    redIncidente = (redIncidente * 15);
-    redimpacto = (redimpacto * 15);
-    faturamento = (faturamento * 10);
-
-    ImpactoIndireto = calculoFonteUnn(ImpactoIndireto);
-    ImpactoDireto = calculoFonteUnn(ImpactoDireto);
-
-    var valor = (parseInt(problemaCliente) + parseInt(aumCusto) + parseInt(redIncidente) + parseInt(redimpacto) + parseInt(faturamento) + parseInt(ImpactoIndireto) + parseInt(ImpactoDireto))
-    return valor;
-}
-
-function calculoFonteUnn(item) {
-    var valor = 0;
-    if (item === "1" || item === 1)
-        valor = "0";
-    else if (item === "2" || item === 2)
-        valor = "16";
-    else if (item === "3" || item === 3)
-        valor = "96";
-    else if (item === "4" || item === 4)
-        valor = "200";
-    else if (item === "5" || item === 5)
-        valor = "300";
-
-    return (valor);
-}
-
-function GetHTMLMapa(processo, entradas, saidas) {
-    var score = calcularScore(processo.ProblemaCliente,
-        processo.AumentoCusto,
-        processo.Incidente,
-        processo.ImpactoAmbiental,
-        processo.Faturamento,
-        processo.ImpactoIndireto,
-        processo.ImpactoDireto);
-
-    var background = "#FFFF00";
-    var color = "#000000";
-    var msg = "OPORTUNIDADE DE MELHORIA";
-
-    if (score < 131) {
-        background = "#004d00";
-        color = "#ffffff";
-        msg = "PROCESSO SOB CONTROLE"
-    } else if (score > 249) {
-        background = "#FF0000";
-        color = "#000000";
-        msg = "PROCESSO FORA DE CONTROLE"
-    }
-
-    var html = `<div class="col-md-3">
-                    <div data-pages="card" class="card card-default " id="card-basic">
-                        <div class="card-header  ">
-                            <div class="card-title">
-                                <label class="bold"> Entradas do Processo </label>
-                            </div>
-                        </div>
-                        <div class="card-block">
-                            `+ GetHTMLEntSai(processo.MovProcessoEntrada) + `
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1 text-center"  style="padding-top:5%">
-                    <i class="fa-5x fa fa-arrow-circle-right "></i>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-default">
-                        <div class="card-header ">
-                            <div class="card-title">
-                                <label class="bold"> `+ processo.Codigo + ` | Score: ` + score + ` </label>
-                            </div> <hr />
-                        </div>
-                        <div class="card-block">
-                            <h3>
-                                <span class="semi-bold">`+ processo.Nome + `</span>
-                            </h3><br>
-                            <label class="bold" style="background:` + background + `; color:` + color + `;">` + msg + `</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1 text-center" style="padding-top:5%">
-                    <i class="fa-5x fa fa-arrow-circle-right "></i>
-                </div>
-                <div class="col-md-3">
-                    <div data-pages="card" class="card card-default" id="card-basic">
-                        <div class="card-header  ">
-                            <div class="card-title">
-                                <label class="bold"> Saídas do Processo </label>
-                            </div>
-                        </div>
-                        <div class="card-block">
-                            `+ GetHTMLEntSai(processo.MovProcessoSaida) + `
-                        </div>
-                    </div>
-                </div>`;
-    return html;
-}
-
-function GetHTMLEntSai(lista) {
-
-    var html = "<ul>";
-
-    for (var i = 0; i < lista.length; i++)
-        html = html + `<li>` + lista[i] + `</li>`;
-
-    html = html + "</ul>";
-    return html;
-}
-
-Pace.options.ajax.trackWebSockets = false;
-Pace.options.ignoreURLs = ['signalr', '__browserLink', 'browserLinkSignalR'];
-Pace.options.ajax.trackMethods = ['GET', 'POST'];
-
-//SignalR Server Point
-
-$.connection.hub.url = urlDominio + "/signalr";
-
-//$('body').append("<script src='"+ baseUrl +":8080/signalr/hubs' type='text/javascript'></script>");

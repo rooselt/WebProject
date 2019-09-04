@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿
 namespace TCC.Web.Models
 {
     public class EmpresaViewModel
     {
         //FK's
-        public int IdCidade { get; set; }
-
-        public virtual Cidade Cidade { get; set; }
-
+        public int Id { get; set; }
+        public int IdCidade { get; set; }        
         //Campos
         public string CNPJ { get; set; }
         public string RazaoSocial { get; set; }

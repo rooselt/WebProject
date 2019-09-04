@@ -11,6 +11,8 @@
         public string Email { get; set; } 
         public string TelefoneContato { get; set; }
         public string Ramal { get; set; }
+        public string Cpf { get; set; }
+        public string Identidade { get; set; }
         public string TelefoneCelular { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }

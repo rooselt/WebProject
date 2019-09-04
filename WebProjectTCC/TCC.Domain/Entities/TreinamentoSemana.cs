@@ -1,4 +1,6 @@
-﻿namespace TCC.Domain.Entities
+﻿using TCC.Domain.Objects;
+
+namespace TCC.Domain.Entities
 {
     public class TreinamentoSemana : BaseEntity
     {

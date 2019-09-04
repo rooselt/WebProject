@@ -12,9 +12,8 @@ namespace TCC.Web.AutoMapper
         public DomainToViewModelMappingProfile()
         {
            
-            this.CreateMap<EmpresaViewModel, Empresa>();          
-
-
+            this.CreateMap<EmpresaViewModel, Empresa>();
+            this.CreateMap<ClienteViewModel,  Cliente>();
         }
     }
 }

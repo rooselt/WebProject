@@ -4,17 +4,6 @@ var IdUsuario;
 var dataValue = [];
 var dataComboEmpresa = [];
 
-function getComboEmpresa() {
-    var empresa = $("#Empresa");
-
-    return $.get(urlGetComboEmpresa, function (data) {
-        preencheComboNomeFantasia(data.empresa, empresa);
-
-        dataComboEmpresa = data.empresa;
-    }).fail(function (e) {
-        messageAlert(error, e.Mensagem);
-    });
-}
 
 function getComboColaborador(idEmpresa) {
     var jsonKey = { idEmpresa: idEmpresa };
@@ -228,7 +217,7 @@ function preencheCombo(data, objectHtml) {
         objectHtml.append("<option value='" + item.Id + "'>" + item.Descricao + "</option>");
     });
 
-    objectHtml.select2({ width: '100%' });
+    objectHtml.select2({ width: '100%'});
 
 }
 

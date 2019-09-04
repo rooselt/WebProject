@@ -38,26 +38,26 @@ namespace TCC.Infra.ValueObject
             {
                 return false;
             }
-            
+
             empresaOld.IdCidade = empresaNew.IdCidade;
 
             empresaOld.RazaoSocial = empresaNew.RazaoSocial;
             empresaOld.NomeFantasia = empresaNew.NomeFantasia;
             empresaOld.InscricaoEstadual = empresaNew.InscricaoEstadual;
-        
+
             empresaOld.Responsavel = empresaNew.Responsavel;
             empresaOld.Email = empresaNew.Email;
             empresaOld.PaginaWEB = empresaNew.PaginaWEB;
             empresaOld.TelefoneContato = empresaNew.TelefoneContato;
             empresaOld.Ramal = empresaNew.Ramal;
             empresaOld.TelefoneCelular = empresaNew.TelefoneCelular;
-          
+
             empresaOld.Logradouro = empresaNew.Logradouro;
             empresaOld.Numero = empresaNew.Numero;
             empresaOld.Complemento = empresaNew.Complemento;
             empresaOld.Bairro = empresaNew.Bairro;
             empresaOld.CEP = empresaNew.CEP;
-         
+
             Update(empresaOld);
             Save();
             return true;
@@ -79,7 +79,7 @@ namespace TCC.Infra.ValueObject
                 catch
                 {
                     response.statusCode = HttpStatusCode.BadRequest;
-                    response.mensagem = "É necessário criar um tipo de Empresa para SALVAR uma nova EMPRESA.";
+                    response.mensagem = _crudMsgFormater.CreateErrorCrudMessage();
                 }
             }
             else
