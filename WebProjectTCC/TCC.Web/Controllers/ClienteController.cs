@@ -65,12 +65,6 @@ namespace TCC.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Form()
-        {
-            return PartialView("_Form");
-        }
-
-        [HttpGet]
         public JsonResult Get(int Id)
         {
             var cliente = _clienteObject.GetById(Id);

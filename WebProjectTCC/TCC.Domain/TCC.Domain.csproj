@@ -59,7 +59,6 @@
     <Compile Include="Entities\Cargo.cs" />
     <Compile Include="Entities\Cidade.cs" />
     <Compile Include="Entities\Cliente.cs" />
-    <Compile Include="Entities\ColaboradorAtividades.cs" />
     <Compile Include="Entities\Colaborador.cs" />
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\EnvioEmail.cs" />
@@ -69,7 +68,6 @@
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\SubMenu.cs" />
     <Compile Include="Entities\TreinamentoSemana.cs" />
-    <Compile Include="Entities\TreinamentoColaborador.cs" />
     <Compile Include="Entities\Treinamento.cs" />
     <Compile Include="Identity\ApplicationRole.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />

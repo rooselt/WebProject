@@ -36,13 +36,19 @@
         Notificacao = 1
     }
 
+    public enum eTipoAtividade : short
+    {
+        [Description("Musculação")]
+        Musculacao = 1,
+        [Description("Aula em Grupo")]
+        AulaGrupo = 2
+    }
+
 
     public enum eTipoPerfil : short
     {
         [Description("Administrador")]
-        Admin = 1,
-        [Description("Cliente")]
-        Cliente = 2,
+        Admin = 1,      
         [Description("Instrutor")]
         Instrutor = 3
     }

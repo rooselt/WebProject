@@ -109,7 +109,7 @@ function getCombos() {
     var idCidade = $("#idCidade");
 
     return $.get(urlGetComboCidade, function (data) {
-        preencheCombo(data, idCidade);
+        preencheCombo(data, "Selecione a Cidade", idCidade);
     }).fail(function (e) {
         messageAlert(e.Mensagem, error);
     });

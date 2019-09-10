@@ -25,24 +25,14 @@ function getComboColaborador(idEmpresa) {
     return $.get();
 }
 
-function getComboMultiColaborador(idEmpresa, seletor, url) {
-    var jsonKey = { idEmpresa: idEmpresa };
+function getComboEmpresa() {
+    var idEmpresa = $("#idEmpresa");
 
-    if (idEmpresa !== "") {
-        return $.get(url,
-            jsonKey,
-            function (data) {
-                preencheMultiselectColaborador(data, $(seletor));
-            }).fail(function (data) {
-                if (data.status === 403) {
-                    messageAlert(visualizarPermicaoAcesso, error);
-                }
-            });
-    } else {
-        messageAlert("Selecione a Empresa para carregar os Colaboradores", info);
-    }
-
-    return false;
+    return $.get(urlGetComboEmpresa, function (data) {
+        preencheCombo(data, idEmpresa);
+    }).fail(function (e) {
+        messageAlert(e.Mensagem, error);
+    });
 }
 
 //Manipulação basica de crud
@@ -211,13 +201,13 @@ function deleteExistFile(idTipo, url) {
 }
 
 //Combos metodos
-function preencheCombo(data, objectHtml) {
-    objectHtml.html("<option value=''>Selecione...</option>");
+function preencheCombo(data, text, objectHtml) {
+    objectHtml.html("<option value=''>" + text + "</option>");
     $.each(data, function (i, item) {
         objectHtml.append("<option value='" + item.Id + "'>" + item.Descricao + "</option>");
     });
 
-    objectHtml.select2({ width: '100%'});
+    objectHtml.select2({ width: '100%' });
 
 }
 

@@ -85,7 +85,6 @@
     <Compile Include="Mapping\CargoMap.cs" />
     <Compile Include="Mapping\CidadeMap.cs" />
     <Compile Include="Mapping\ClienteMap.cs" />
-    <Compile Include="Mapping\ColaboradorAtividadesMap.cs" />
     <Compile Include="Mapping\ColaboradorMap.cs" />
     <Compile Include="Mapping\EmpresaMap.cs" />
     <Compile Include="Mapping\EnvioEmailMap.cs" />
@@ -95,13 +94,15 @@
     <Compile Include="Mapping\PaisMap.cs" />
     <Compile Include="Mapping\SubMenuMap.cs" />
     <Compile Include="Mapping\TreinamentoSemanaMap.cs" />
-    <Compile Include="Mapping\TreinamentoColaboradorMap.cs" />
     <Compile Include="Mapping\TreinamentoMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\UserSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="ValueObject\ColaboradorObject.cs" />
     <Compile Include="ValueObject\ClienteObject.cs" />
+    <Compile Include="ValueObject\TreinamentoSemanaObject.cs" />
+    <Compile Include="ValueObject\TreinamentoObject.cs" />
     <Compile Include="ValueObject\LogOperacaoObject.cs" />
     <Compile Include="ValueObject\CidadeObject.cs" />
     <Compile Include="ValueObject\EmpresaObject.cs" />

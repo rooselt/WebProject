@@ -3,6 +3,7 @@ namespace TCC.Web.AutoMapper
 {
     using global::AutoMapper;
     using TCC.Domain.Entities;
+    using TCC.Infra.ValueObject;
     using TCC.Web.Models;
 
     public class DomainToViewModelMappingProfile : Profile
@@ -11,9 +12,13 @@ namespace TCC.Web.AutoMapper
 
         public DomainToViewModelMappingProfile()
         {
-           
+
             this.CreateMap<EmpresaViewModel, Empresa>();
-            this.CreateMap<ClienteViewModel,  Cliente>();
+            this.CreateMap<ClienteViewModel, Cliente>();
+            this.CreateMap<ColaboradorViewModel, Colaborador>();
+            this.CreateMap<TreinamentoViewModel, Treinamento>();
+            this.CreateMap<TreinamentoViewModel, TreinamentoDto>();
+
         }
     }
 }

@@ -31,7 +31,10 @@ namespace TCC.Web
 
             bundles.Add(new ScriptBundle("~/bundles/plugin").Include(
                 "~/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js",
+                "~/assets/js/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js",
+                "~/assets/js/plugins/moment/moment.min.js",
                 "~/assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js",
+                "~/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js",
                 "~/assets/js/plugins/select2/select2.min.js",
                 "~/assets/js/plugins/jquery-maskedinput/jquery.masked-input.min.js",
                 "~/assets/js/plugins/jquery-gritter/js/jquery.gritter.js",

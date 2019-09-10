@@ -101,21 +101,11 @@ function editar(id, urlGet) {
 
 }
 
-function getComboEmpresa() {
-    var idEmpresa = $("#idEmpresa");
-
-    return $.get(urlGetComboEmpresa, function (data) {
-        preencheCombo(data, idEmpresa);
-    }).fail(function (e) {
-        messageAlert(e.Mensagem, error);
-    });
-}
-
 function getComboCidade() {
     var idCidade = $("#idCidade");
 
     return $.get(urlGetComboCidade, function (data) {
-        preencheCombo(data, idCidade);
+        preencheCombo(data,"Selecione a Cidade", idCidade);
     }).fail(function (e) {
         messageAlert(e.Mensagem, error);
     });

@@ -39,7 +39,7 @@ namespace TCC.Infra.Migrations
 
                 var role = new List<ApplicationRole> {
                     new ApplicationRole { Name = eTipoPerfil.Admin.ToString() },
-                    new ApplicationRole { Name = eTipoPerfil.Cliente.ToString() },
+                    new ApplicationRole { Name = "Cliente" },
                     new ApplicationRole { Name = eTipoPerfil.Instrutor.ToString() }
                   };
 

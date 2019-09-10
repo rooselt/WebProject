@@ -35,6 +35,7 @@ namespace TCC.Infra.Context
 
 
         public IDbSet<ApplicationUserClaim> Claim { get; set; }
+        public IDbSet<TreinamentoSemana> TreinamentoSemanas { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

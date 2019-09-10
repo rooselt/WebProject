@@ -12,8 +12,7 @@ namespace TCC.Infra.Mapping
             Property(x => x.IdEmpresa).HasColumnName("ID_EMPRESA").IsRequired();            
             Property(x => x.IdColaborador).HasColumnName("ID_COLABORADOR");
             Property(x => x.Descricao).HasColumnName("CAPACITACAO").IsRequired();
-            Property(x => x.CargaHoraria).HasColumnName("CARGA_HORARIA").IsRequired();              
-           
+            
             Property(x => x.PeriodoInicial).HasColumnName("PERIODO_INICIAL").IsOptional();
             Property(x => x.PeriodoFinal).HasColumnName("PERIODO_FINAL").IsOptional();            
             

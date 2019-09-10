@@ -176,6 +176,7 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ColaboradorController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -295,6 +296,10 @@
     <Content Include="assets\js\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="assets\js\plugins\bootstrap-switch\bootstrap-switch.min.js" />
     <Content Include="assets\js\plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-timepicker\bootstrap-timepicker.css" />
+    <Content Include="assets\js\plugins\bootstrap-timepicker\bootstrap-timepicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="assets\js\plugins\bootstrap-timepicker\bootstrap-timepicker.min.js" />
     <Content Include="assets\js\plugins\bootstrap-touchspin\jquery.bootstrap-touchspin.js" />
     <Content Include="assets\js\plugins\bootstrap-tour\bootstrap-tour.custom.js" />
     <Content Include="assets\js\plugins\datatable\dataTables.bootstrap.js" />
@@ -403,7 +408,9 @@
     <Content Include="assets\fonts\lato-reg-webfontd7cf.eot" />
     <Content Include="assets\fonts\lato-reg-webfontd7cf.ttf" />
     <Content Include="assets\fonts\lato-reg-webfontd7cf.woff" />
+    <Content Include="Scripts\Cadastro\colaborador.js" />
     <Content Include="Scripts\Cadastro\cliente.js" />
+    <Content Include="Scripts\Cadastro\treinamento.js" />
     <Content Include="Scripts\Cadastro\empresa.js" />
     <Content Include="Scripts\Util\address.js" />
     <Content Include="Scripts\Util\baseJs.js" />
@@ -464,6 +471,9 @@
     <Content Include="Views\Empresa\_Table.cshtml" />
     <Content Include="Views\Shared\_ModalDelete.cshtml" />
     <Content Include="Views\Cliente\_Table.cshtml" />
+    <Content Include="Views\Treinamento\_Table.cshtml" />
+    <Content Include="Views\Colaborador\_Table.cshtml" />
+    <Content Include="Views\Colaborador\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TCC.Application\TCC.Application.csproj">

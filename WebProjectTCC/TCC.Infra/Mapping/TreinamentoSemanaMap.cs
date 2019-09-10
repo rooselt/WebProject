@@ -8,11 +8,10 @@ namespace TCC.Infra.Mapping
         {
             ToTable("TREINAMENTO_SEMANA", "TCC");
 
-
             Property(x => x.DiaSemana).HasColumnName("DIA_SEMANA");
             Property(x => x.IdTreinamento).HasColumnName("ID_TREINAMENTO");
 
-            HasRequired(x => x.Treinamento).WithMany().HasForeignKey(x => x.IdTreinamento);
+            HasRequired(x => x.Treinamento).WithMany(c=> c.TreinamentoSemana).HasForeignKey(x => x.IdTreinamento);
         }
     }
 }
