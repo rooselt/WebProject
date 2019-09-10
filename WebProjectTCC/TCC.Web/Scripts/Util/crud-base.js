@@ -29,7 +29,7 @@ function getComboEmpresa() {
     var idEmpresa = $("#idEmpresa");
 
     return $.get(urlGetComboEmpresa, function (data) {
-        preencheCombo(data, idEmpresa);
+        preencheCombo(data,"Selecione a Empresa", idEmpresa);
     }).fail(function (e) {
         messageAlert(e.Mensagem, error);
     });
