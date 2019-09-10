@@ -1,4 +1,5 @@
-﻿
+﻿var dataSemana;
+
 $(function () {
     getComboEmpresa();
     getCombo();
@@ -47,7 +48,11 @@ function editar(id, urlGet) {
         idColaborador.val(data.treinamento.IdColaborador).trigger("change");
         idEmpresa.val(data.treinamento.IdEmpresa).trigger("change");
 
-        diaSemana.multiselect("select", data.semana);
+        $("#diaSemana").multiselect("destroy");
+
+        preencheMultiselect(dataSemana, $("#diaSemana"));
+
+        $("#diaSemana").multiselect("select", data.semana);
 
         periodoInicial.timepicker('setTime', moment(data.treinamento.PeriodoInicial).toDate());
         periodoFinal.timepicker('setTime', moment(data.treinamento.PeriodoFinal).toDate());
@@ -64,12 +69,12 @@ function editar(id, urlGet) {
 }
 
 
-
-
 function getCombo() {
     return $.get(urlGetComboTreinamento, function (data) {
         preencheCombo(data.colaborador, "Selecione o Colaborador", $("#idColaborador"));
         preencheMultiselect(data.semana, $("#diaSemana"));
+
+        dataSemana = data.semana;
     }).fail(function (e) {
         messageAlert(e.Mensagem, error);
     });

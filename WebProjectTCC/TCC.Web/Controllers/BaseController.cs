@@ -14,7 +14,8 @@ using TCC.Web.Filter;
 
 namespace TCC.Web.Controllers
 {
-    [AuthorizeCustomFilter]
+    [Authorize]
+    [CustomExceptionFilter]
     //[XframeOptions]
     public class BaseController : Controller
     {

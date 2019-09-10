@@ -124,20 +124,9 @@
                                                 <span class="name">@User.Identity.Name</span> <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" role="menu">
+                                               
                                                 <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-user"></i>
-                                                        <span class="text">Profile</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-cog"></i>
-                                                        <span class="text">Settings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
+                                                    <a href="@Url.Content("~/Account/LogOff")">
                                                         <i class="fa fa-power-off"></i>
                                                         <span class="text">Logout</span>
                                                     </a>
@@ -186,7 +175,7 @@
                             <i class="fa fa-angle-left"></i>
                         </div>
                         <!-- sidebar content -->
-                        <div class="sidebar-content">
+                        @*<div class="sidebar-content">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h5><i class="fa fa-lightbulb-o"></i> Tips</h5>
@@ -244,7 +233,7 @@
                                     <span class="data-value">x86_64</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div>*@
                         <!-- end sidebar content -->
                     </div>
                     <!-- end left sidebar -->

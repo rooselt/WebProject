@@ -20,8 +20,8 @@ namespace TCC.Infra.ValueObject
 
         public List<int> GetByIdTreinamento(int idTreinamento)
         {
-            var diaSemana = GetBy(c => c.IdTreinamento == idTreinamento)
-                .Select(c => c.Id)
+            var diaSemana = GetAll().Where(c => c.IdTreinamento == idTreinamento)
+                .Select(c => (int)c.DiaSemana)
                 .ToList();
 
             return diaSemana;
