@@ -10,10 +10,11 @@ using TCC.Application.Interfaces;
 using TCC.Domain.Entities;
 using TCC.Domain.Objects;
 using TCC.Infra.ValueObject;
+using TCC.Web.Filter;
 
 namespace TCC.Web.Controllers
 {
-    [Authorize]
+    [AuthorizeCustomFilter]
     //[XframeOptions]
     public class BaseController : Controller
     {
